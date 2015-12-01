@@ -27,19 +27,9 @@ module PoemBot
 
         s = cc.dorule(input)
 
-        poem = cc.postProcess(s)
+        text = cc.postProcess(s)
         
-        text = 
-          {
-              "attachments": [
-                  {
-                      "fallback": input,
-                      "title": input,
-                      "text": poem,
-                      "color": "#764FA5"
-                  }
-              ]
-          }
+        #text = "{ 'attachments': [ { 'fallback': input, 'title': input,'text': poem,'color': '#764FA5' } ]}"
 
         
       else
