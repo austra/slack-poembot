@@ -31,7 +31,6 @@ module PoemBot
 
         hp = cc.dorule('description') 
         @poem = cc.postProcess(s)
-        binding.pry
       rescue => e
         p e.message
         halt
