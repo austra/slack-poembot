@@ -18,27 +18,38 @@ module PoemBot
     end
 
     post "/poem" do
-      begin
+      input = params[:text].gsub(params[:trigger_word],"").strip
+
+      if input != ""
         cc = Cc.new
         cc.loadTables("./ctab.txt")
         cc.log = false # 
 
-        s = cc.dorule("epicpoem")
-        # print "\n\n-----\n\n"
-        #print cc.postProcess(s)
-        # print "\n\n-----\n\n"
+        s = cc.dorule(input)
 
+        poem = cc.postProcess(s)
+        
+        text = 
+          {
+              "attachments": [
+                  {
+                      "fallback": input,
+                      "title": input,
+                      "text": poem,
+                      "color": "#764FA5"
+                  }
+              ]
+          }
 
-        hp = cc.dorule('description') 
-        @poem = cc.postProcess(s)
-      rescue => e
-        p e.message
-        halt
+        
+      else
+        text = "Try poem, happypoem, evilpoem, epicpoem, or sonnet (poem evilpoem)"
       end
 
       status 200
-      reply = { username: 'poembot', icon_emoji: ':alien:', text: @poem }
+      reply = { username: 'poembot', icon_emoji: ':alien:', text: text }
       return reply.to_json
+
     end
   end
 end
