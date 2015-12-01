@@ -3,6 +3,7 @@
 require 'bundler/setup'
 require 'sinatra'
 require 'pry'
+require 'json'
 require './vig.rb'
 
 module PoemBot
@@ -29,8 +30,8 @@ module PoemBot
 
 
         hp = cc.dorule('description') 
-        @poem = cc.postProcess(hp)
-
+        @poem = cc.postProcess(s)
+        binding.pry
       rescue => e
         p e.message
         halt
