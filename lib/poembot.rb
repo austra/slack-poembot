@@ -37,14 +37,14 @@ module PoemBot
         title = poem.split("----=-==-====-==-=----")[0]
         poem = poem.split("----=-==-====-==-=----")[1]
 
-        text = [{
+        text = {
           fallback: description,
           author_name: author,
           title: title,
           title_link: '',
           text: poem,
           color: '#36a64f'
-        }]
+        }
       else
         text = "Try poem, happypoem, evilpoem, epicpoem, or sonnet (poem evilpoem)"
       end
