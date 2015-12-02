@@ -18,7 +18,7 @@ module PoemBot
     end
 
     post "/poem" do
-      input = params[:text].gsub(params[:trigger_word],"").strip
+      input = params[:text].sub(params[:trigger_word],"").strip
 
       if input != ""
         cc = Cc.new
