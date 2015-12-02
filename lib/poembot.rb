@@ -50,7 +50,7 @@ module PoemBot
       end
 
       status 200
-      reply = { username: 'poembot', icon_emoji: ':alien:', text: text.to_json }
+      reply = { username: 'poembot', icon_emoji: ':alien:', attachments: text.to_json }
       return reply.to_json
 
     end
