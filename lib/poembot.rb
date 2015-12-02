@@ -25,13 +25,26 @@ module PoemBot
         cc.loadTables("./ctab.txt")
         cc.log = false # 
 
-        s = cc.dorule(input)
+        poem = cc.dorule(input)
+        poem = cc.postProcess(poem)
 
-        text = cc.postProcess(s)
-        
-        #text = "{ 'attachments': [ { 'fallback': input, 'title': input,'text': poem,'color': '#764FA5' } ]}"
+        description = cc.dorule('description')
+        description = cc.postProcess(description)
 
-        
+        author = cc.dorule('author')
+        author = cc.postProcess(author)
+
+        title = poem.split("----=-==-====-==-=----")[0]
+        poem = poem.split("----=-==-====-==-=----")[1]
+
+        text = [{
+          fallback: description,
+          author_name: author,
+          title: title,
+          title_link: '',
+          text: poem,
+          color: '#36a64f'
+        }]
       else
         text = "Try poem, happypoem, evilpoem, epicpoem, or sonnet (poem evilpoem)"
       end

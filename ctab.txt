@@ -816,19 +816,22 @@ Fangworthy The Wolfboy
 
 
 [poem]
-{+g} %title %break {+g,+h} %firstline {-g,+v,-h} %line {-g,-v,-h} %line {-g} %line {+g,+h} %line %lastline & %signature
+{+g} %title %break {+g,+h} %firstline {-g,+v,-h} %line {-g,-v,-h} %line {-g} %line {+g,+h} %line %lastline
 
 [happypoem]
-{+g} %title %break {+g,+h} %firstline {+g,+v,-h} %line {+g,-v,-h} %line {+g} %line {+g,+h} %line & %signature
+{+g} %title %break {+g,+h} %firstline {+g,+v,-h} %line {+g,-v,-h} %line {+g} %line {+g,+h} %line
 
 [evilpoem]
-{-g} %title %break {-g,+h} %firstline {-g,+v,-h} %line {-g,+v,-h} %line {-g} %line {-g,+h} %line & %signature
+{-g} %title %break {-g,+h} %firstline {-g,+v,-h} %line {-g,+v,-h} %line {-g} %line {-g,+h} %line
 
 [epicpoem]
-%title %break & %firstline %line & %line %line & %line %line & %line %line & %line %line & %line %lastline & %signature
+%title %break & %firstline %line & %line %line & %line %line & %line %line & %line %line & %line %lastline
 
 [sonnet]
 %title ( A sonnet by %signature ) & %break {+v,-g} %line %line %line %line %line %line %line %line %line %line %line %line {-v,+h} %line %line %line %lastline
 
 [description]
 %it_was _a _n %thing
+
+[author]
+%signature
