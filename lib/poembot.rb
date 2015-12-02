@@ -37,22 +37,25 @@ module PoemBot
         title = poem.split("----=-==-====-==-=----")[0]
         poem = poem.split("----=-==-====-==-=----")[1]
 
-        text = {
+        #can't get this to work as message attachment
+        text = [{
           fallback: description,
           author_name: author,
           title: title,
           title_link: '',
           text: poem,
           color: '#36a64f'
-        }
+        }]
+
+        status 200
+        reply = { username: 'poembot', icon_emoji: ':alien:', text: poem }
+        return reply.to_json
       else
         text = "Try poem, happypoem, evilpoem, epicpoem, or sonnet (poem evilpoem)"
+        status 200
+        reply = { username: 'poembot', icon_emoji: ':alien:', text: text }
+        return reply.to_json
       end
-
-      status 200
-      reply = { username: 'poembot', icon_emoji: ':alien:', attachments: text.to_json }
-      return reply.to_json
-
     end
   end
 end
